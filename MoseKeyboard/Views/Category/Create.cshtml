@@ -1,0 +1,74 @@
+﻿@model MoseKeyboard.Models.Models.Category
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        background: rgb(22,22,22);
+        background: linear-gradient(177deg, rgba(22,22,22,1) 0%, rgba(7,7,7,1) 100%);
+        justify-content: center;
+    }
+
+    .create {
+        width: 40%;
+        margin-top: 3.5vw;
+        margin-left: 30vw;
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 40vw;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        padding: 2vw;
+        border-radius: 10px;
+    }
+
+        .create h1, hr {
+            align-self: center;
+            color: darkgray;
+            font-family: PT SERIF;
+        }
+
+    .control-label {
+        color: darkgray;
+        font-family: PT SERIF;
+        font-size: 1vw;
+    }
+
+    .form-control {
+        background-color: rgb(25,25,25);
+        border: solid 1px rgb(25,25,25);
+        color: darkgray;
+        font-family: PT SERIF;
+    }
+</style>
+
+
+<body>
+    <div class="create">
+        <h1>Create category</h1>
+        <hr />
+        <div>
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <br />
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" style="background-color: rgb(25,25,25); border: solid 0px; color: darkgray;
+                     font-family: PT SERIF;" />
+                    <a asp-action="Index" class="btn btn-info" style="background-color: rgb(25,25,25); border: solid 0px; color: darkgray;
+                     font-family: PT SERIF;">Back to list</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

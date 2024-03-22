@@ -1,0 +1,188 @@
+﻿@model MoseKeyboard.Models.Models.ViewModel.HomeVM
+
+<style>
+    .logo {
+        font-size: 7vw;
+        color: white;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        background: rgb(22,22,22);
+        background: linear-gradient(177deg, rgba(22,22,22,1) 0%, rgba(7,7,7,1) 100%);
+        min-height: 2000px;
+    }
+
+    .intro {
+        width: 100%;
+        margin-top: 3vw;
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 46.2vw;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        background-image: url("/lib/images/intro.jpg");
+        background-size: cover;
+        background-position-y: -100px;
+    }
+
+        .intro span {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 45vw;
+            min-height: 200px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            align-items: center;
+            justify-content: center;
+            font-size: x-large;
+            font-family: PT SERIF;
+        }
+
+            .intro span h1 {
+                font-size: 2.5vw;
+                font-weight: bold;
+            }
+
+            .intro span h2 {
+                font-size: 1.1vw;
+                margin-bottom: 3vw;
+            }
+
+        .intro input {
+            width: 13%;
+            height: 3vw;
+            background-color: rgba(7, 7, 7, 0.7);
+            border: 0px;
+            color: white;
+            font-family: PT SERIF;
+            font-size: 1.2vw;
+            border-radius: 5px;
+        }
+
+            .intro input:hover {
+                background-color: rgba(15, 15, 15, 0.7);
+                transition: 0.1s;
+            }
+
+            .intro input:not(:hover) {
+                background-color: rgba(7, 7, 7, 0.7);
+                transition: 0.1s;
+            }
+
+    .under-nav-bar {
+        background-color: transparent;
+        min-height: 75px;
+    }
+
+    .intro-to-info {
+        text-align: center;
+    }
+
+    .intro-to-info button {
+        width: 100%;
+        height: 8vw;
+        background-color: transparent;
+        border: 0px;
+        background-color: rgba(0, 0, 0, 0.4);
+        min-height: 150px;
+    }
+
+    .products-main {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.2);
+        margin: 1vw;
+        border-radius: 10px
+    }
+
+    .products-main h1 {
+        align-self: center;
+        color: lightgray;
+        font-family: PT SERIF;
+    }
+    
+    .about-us {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 1vw;
+        font-family: PT SERIF;
+        padding-left: 2vw;
+        padding-right: 2vw;
+    }
+    .about-us h1{
+        align-self: center;
+        color: white;
+        padding: 1vw;
+    }
+    .about-background
+    {
+        display: flex;
+        flex-direction: row;
+        background-color: rgba(0, 0, 0, 0.2);
+        width: 85%;
+        padding: 2vw;
+    }
+    .about-background span
+    {
+        color: darkgray;
+        font-size: 1.2vw;
+        padding: 1vw;
+    }
+</style>
+
+<body class="col-md-12">
+    <div class="intro">
+        <span>
+            <h1>
+                custom keyboards for all your wishes
+            </h1>
+            <h2>
+                we have been working in this field for about 2 years and provide only high-quality goods to our customers
+            </h2>
+            <input type="button" value="contact us" onclick="contactMe()">
+        </span>
+        <div class="intro-to-info">
+            <a href="#list">
+                <button>
+                    <svg width="100" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 10L12 15L17 10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                </button>
+            </a>
+        </div>
+        </span>
+    </div>
+    <div class="about-us">
+        <h1>about us</h1>
+        <div class="about-background">
+            <img src="~/lib/images/keyboard1.jpg" />
+            <span>our team of enthusiasts has been customizing keyboards for two years now. with a blend of craftsmanship and innovation, we transform ordinary keyboards into personalized masterpieces reflecting unique styles. each member brings distinct skills, from artisan keycap crafting to intricate soldering and programming expertise. our mission is to empower individuals to express themselves through their keyboards and elevate the typing experience.</span>
+        </div><br />
+        <div class="about-background" style="align-self:flex-end">
+            <span>
+                at our workshop, every keyboard is a masterpiece, crafted with care and passion. we listen closely to our clients, ensuring their unique vision is brought to life. customer satisfaction is our top priority, and we go above and beyond to exceed expectations. with us, your keyboard isn't just a tool, it's a work of art that brings joy every day.
+            </span>
+            <img src="~/lib/images/keyboard3.jpg" />
+        </div>
+    </div>
+    <div class="products-main" id="list">
+        <h1>our products</h1>
+        <div class="row">
+            @if (Model != null)
+            {
+                @foreach (var prod in Model.Products)
+                {
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("Jowwwwwwwwwwwwwwwwwww");
+            }
+        </div>
+    </div>
+</body>

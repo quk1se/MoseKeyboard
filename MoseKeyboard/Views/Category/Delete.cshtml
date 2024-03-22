@@ -1,0 +1,97 @@
+﻿@model MoseKeyboard.Models.Models.Category
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        background: rgb(22,22,22);
+        background: linear-gradient(177deg, rgba(22,22,22,1) 0%, rgba(7,7,7,1) 100%);
+        justify-content: center;
+    }
+
+        body label {
+            color: gray;
+            font-family: PT SERIF;
+            font-size: 1vw;
+        }
+
+    .category-delete {
+        width: 40%;
+        margin-top: 3.2vw;
+        margin-left: 30vw;
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 40vw;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        padding: 2vw;
+        border-radius: 10px;
+    }
+
+        .category-delete h1, h3 {
+            color: gray;
+            font-family: PT SERIF;
+            align-self: center;
+        }
+
+    .table {
+        background-color: rgb(13,13,13);
+        border: solid 1px rgb(13,13,13);
+        border-radius: 10px;
+    }
+
+    .btn-class {
+        background-color: rgb(25,25,25);
+        border: solid 0px;
+        color: darkgray;
+        font-family: PT SERIF;
+    }
+
+    .inputs {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        width: 36vw;
+        height: 2vw;
+        background-color: rgb(25,25,25);
+        border: solid 1px rgb(25,25,25);
+        color: darkgray;
+        font-family: PT SERIF;
+    }
+
+    .row dd, dt {
+        margin-bottom: 2vw;
+        color: gray;
+        font-family: PT SERIF;
+        font-size: 0.9vw;
+    }
+</style>
+<body>
+    <div class="category-delete">
+        <h1>Delete</h1>
+        <h3>Are you sure you want to delete this?</h3>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-5">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger, btn-class" />
+            <a asp-action="Index" class="btn btn-primary, btn-class">Back to List</a>
+        </form>
+    </div>
+</body>

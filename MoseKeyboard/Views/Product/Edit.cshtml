@@ -1,0 +1,114 @@
+﻿@model MoseKeyboard.Models.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<style>
+        body {
+            display: flex;
+            flex-direction: column;
+            background: rgb(22,22,22);
+            background: linear-gradient(177deg, rgba(22,22,22,1) 0%, rgba(7,7,7,1) 100%);
+            justify-content: center;
+        }
+
+        body h1 {
+            color: gray;
+            font-family: PT SERIF;
+        }
+
+        body label {
+            color: gray;
+            font-family: PT SERIF;
+            font-size: 1vw;
+        }
+
+        body h1 {
+            align-self: center;
+        }
+
+    .product-edit {
+        width: 40%;
+        margin-top: 3.5vw;
+        margin-left: 30vw;
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 40vw;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        padding: 2vw;
+        border-radius: 10px;
+    }
+
+    .table {
+        background-color: rgb(13,13,13);
+        border: solid 1px rgb(13,13,13);
+        border-radius: 10px;
+    }
+
+    .btn-class {
+        background-color: rgb(25,25,25);
+        border: solid 0px;
+        color: darkgray;
+        font-family: PT SERIF;
+    }
+
+    .inputs {
+        margin-top: 1vw;
+        margin-bottom: 1vw;
+        width: 36vw;
+        height: 2vw;
+        background-color: rgb(25,25,25);
+        border: solid 1px rgb(25,25,25);
+        color: darkgray;
+        font-family: PT SERIF;
+    }
+</style>
+<body>
+    <div class="product-edit">
+        <h1>Edit</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control, inputs" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control, inputs" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <input asp-for="Price" class="form-control, inputs" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image" class="control-label"></label>
+                        <input asp-for="Image" class="form-control, inputs" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CategoryId" class="control-label"></label>
+                        <select asp-for="CategoryId" class="form-control, inputs" asp-items="ViewBag.CategoryId"></select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary, btn-class" />
+                        <a asp-action="Index" class="btn btn-info, btn-class">Back to list</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

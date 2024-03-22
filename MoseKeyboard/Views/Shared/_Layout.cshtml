@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MoseBoard</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MoseBoard.styles.css" asp-append-version="true" />
+    <style>
+        .scrolled-nav-bar {
+            background-color: rgba(10,10,10,0.7);
+            transition: 0.3s;
+        }
+        .navbar:not(.scrolled-nav-bar) {
+            background-color: transparent;
+            transition: 0.3s;
+        }
+        .navbar-brand { 
+            font-family: PT SERIF;
+            color: gray;
+        }
+        .intro {
+            background-color: rgba(0, 0, 0, 0.4);
+            height: 46vw;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            background-image: url("../img/intro.jpg");
+            background-size: cover;
+            background-position-y: -100px;
+        }
+        #navbarDropdown {
+            font-family: PT SERIF;
+            color: darkgray;
+            margin-top: 0.18vw;
+            font-size: 0.9vw;
+        }
+        .nav-link {
+            font-family: PT SERIF;
+            color: gray;
+            font-weight: bold;
+            margin-top: 0.18vw;
+            font-size: 0.9vw;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top" id="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MoseBoard</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Admin Panel</b></a>
+                            <div class="dropdown-menu" style="background-color: rgb(40,40,40)" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" style="color: gray" asp-area="" asp-controller="Category" asp-action="Index" target="_blank">Category</a>
+                                <a class="dropdown-item" style="color: gray" asp-area="" asp-controller="Product" asp-action="Index" target="_blank">Products</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link"><i class="fas fa-cart-shopping"></i>Basket &nbsp; (0)</a>
+                        </li>
+                        <partial name="_LoginPartial" />
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="col-md-12">
+    @RenderBody()
+    </main>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - MoseBoard - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.syncfusion.com/ej2/24.2.3/dist/ej2.min.js"></script>
+    <script src="~/lib/dataTable/datatables.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        window.onscroll = function () {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                navbar.classList.add('scrolled-nav-bar');
+            }
+            else {
+                navbar.classList.remove('scrolled-nav-bar');
+            }
+        }
+    </script>
+</body>
+</html>
