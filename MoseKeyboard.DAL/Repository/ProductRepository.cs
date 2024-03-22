@@ -1,19 +1,19 @@
-﻿using MoseBoard.DAL.Entity;
-using MoseBoard.Models.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using MoseBoard.DAL.Repository.IRepository;
+﻿using MoseBoard.DAL.Repository.IRepository;
+using MoseKeyboard.Data;
+using MoseKeyboard.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace MoseBoard.DAL.Repository
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
-        private readonly ApplicationDBContext _db;
-        public ProductRepository(ApplicationDBContext db) : base(db)
+        private readonly ApplicationDbContext _db;
+        public ProductRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }

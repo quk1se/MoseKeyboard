@@ -1,20 +1,20 @@
-﻿using MoseBoard.DAL.Entity;
-using MoseBoard.Models.Models;
-using MoseBoard.DAL.Repository.IRepository;
+﻿using MoseBoard.DAL.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using MoseKeyboard.Data;
+using MoseKeyboard.Models.Models;
 
 namespace MoseBoard.DAL.Repository
 {
     public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
-        private readonly ApplicationDBContext _db;
+        private readonly ApplicationDbContext _db;
 
-        public CategoryRepository(ApplicationDBContext db) : base(db)
+        public CategoryRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }

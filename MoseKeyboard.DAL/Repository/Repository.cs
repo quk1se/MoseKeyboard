@@ -1,5 +1,4 @@
-﻿using MoseBoard.DAL.Entity;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MoseBoard.DAL.Repository.IRepository;
 using System;
 using System.Collections.Generic;
@@ -7,15 +6,16 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using MoseKeyboard.Data;
 
 namespace MoseBoard.DAL.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private readonly ApplicationDBContext _db;
+        private readonly ApplicationDbContext _db;
         internal DbSet<T> dbSet;
 
-        public Repository(ApplicationDBContext db)
+        public Repository(ApplicationDbContext db)
         {
             _db = db;
             this.dbSet = _db.Set<T>();

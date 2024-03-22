@@ -176,12 +176,12 @@
             {
                 @foreach (var prod in Model.Products)
                 {
-
+                    <partial name="_ProductPartial" model="prod" />
                 }
             }
             else
             {
-                Console.WriteLine("Jowwwwwwwwwwwwwwwwwww");
+                Console.WriteLine("Error loading products cards");
             }
         </div>
     </div>
