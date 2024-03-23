@@ -1,0 +1,159 @@
+﻿<style>
+    .contact-body {
+        background: rgb(22,22,22);
+        background: linear-gradient(177deg, rgba(22,22,22,1) 0%, rgba(7,7,7,1) 100%);
+        display: flex;
+        background-attachment: fixed;
+        flex-direction: column;
+        min-height: 500px;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(0, 0, 0, 0.6);
+        width: 30vw;
+        height: 100%;
+        margin-top: 4vw;
+        margin-bottom: 1vw;
+        margin-left: 35vw;
+        border-radius: 10px;
+    }
+
+        .contact-form button {
+            width: 50%;
+            align-self: center;
+            height: 3vw;
+            margin-top: 3vw;
+            background-color: rgba(25, 25, 25, 0.3);
+            border-radius: 10px;
+            border: transparent;
+            transition: 0.3s ease-in-out;
+            color: white;
+            font-family: PT SERIF;
+            font-size: 1vw;
+        }
+
+            .contact-form button:hover {
+                background-color: rgba(49, 49, 49, 0.3);
+            }
+
+    .contact-span {
+        margin-left: 10.7vw;
+        font-size: 2vw;
+        font-family: PT SERIF;
+        color: white;
+        padding-top: 2vw;
+        margin-bottom: 3vw;
+    }
+
+    .contact-span2 {
+        margin-left: 8.1vw;
+        font-size: 1.2vw;
+        font-family: PT SERIF;
+        color: white;
+        padding-top: 2vw;
+        margin-bottom: 3vw;
+    }
+
+    .contact-field {
+        display: flex;
+        flex-direction: column;
+        padding-left: 3vw;
+        padding-right: 3vw;
+        font-family: PT SERIF;
+        font-size: 1vw;
+        color: white;
+    }
+
+        .contact-field input {
+            background-color: transparent;
+            border-color: transparent;
+            color: white;
+            height: 2vw;
+            outline: none;
+        }
+
+        .contact-field textarea {
+            background-color: transparent;
+            border-color: transparent;
+            color: white;
+            height: 2vw;
+            outline: none;
+        }
+
+        .contact-field hr {
+            margin-top: -0vw;
+        }
+
+    .other-links {
+        display: flex;
+        flex-direction: row;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        gap: 4vw;
+        margin-bottom: 1vw;
+    }
+
+        .other-links button {
+            width: 4vw;
+            height: 4vw;
+            margin-top: -2.5vw;
+            background-color: transparent;
+        }
+
+        .other-links img {
+            width: 3vw;
+            height: 3vw;
+        }
+
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact me</title>
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT SERIF" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body class="contact-body">
+    <div class="contact-form">
+        <span class="contact-span">contact us</span>
+        <div class="contact-field">
+            <input id="nameField" type="text" placeholder="Your name">
+            <hr>
+        </div>
+        <div class="contact-field" , style="margin-top: 4vw;">
+            <input id="mailField" type="text" placeholder="Your email">
+            <hr>
+        </div>
+        <div class="contact-field" , style="margin-top: 4vw;">
+            <textarea id="messageField" placeholder="Message" id="messageField"></textarea>
+            <hr>
+        </div>
+        <button onclick="sendMail()" id="sendBtn">Send message</button>
+        <span class="contact-span2">you can also contact me here</span>
+        <div class="other-links">
+            <button id="instBtn" onclick="linksClick(this)">
+                <img src="~/lib/images/inst.png" alt="instagram">
+            </button>
+            <button id="linkBtn" onclick="linksClick(this)">
+                <img src="~/lib/images/link.png" alt="linkedin">
+            </button>
+            <button id="tgBtn" onclick="linksClick(this)">
+                <img src="~/lib/images/tg.png" alt="telegram">
+            </button>
+        </div>
+    </div>
+    @* <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script> *@
+    @* <script type="text/javascript">
+        (function () {
+            emailjs.init("O38tBQ0J7LGCG_GUY");
+        })();
+    </script> *@
+    <script src="~/js/contact.js"></script>
+</body>
+</html>

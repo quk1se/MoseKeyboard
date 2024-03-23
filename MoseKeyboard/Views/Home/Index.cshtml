@@ -27,50 +27,59 @@
         background-position-y: -100px;
     }
 
-        .intro span {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 45vw;
-            min-height: 200px;
-            background-color: rgba(0, 0, 0, 0.4);
-            color: white;
-            align-items: center;
-            justify-content: center;
-            font-size: x-large;
-            font-family: PT SERIF;
-        }
+    .intro span {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 45vw;
+        min-height: 200px;
+        background-color: rgba(0, 0, 0, 0.4);
+        color: white;
+        align-items: center;
+        justify-content: center;
+        font-size: x-large;
+        font-family: PT SERIF;
+    }
 
-            .intro span h1 {
-                font-size: 2.5vw;
-                font-weight: bold;
-            }
+    .intro span h1 {
+        font-size: 2.5vw;
+        font-weight: bold;
+    }
 
-            .intro span h2 {
-                font-size: 1.1vw;
-                margin-bottom: 3vw;
-            }
+    .intro span h2 {
+        font-size: 1.1vw;
+        margin-bottom: 3vw;
+    }
 
-        .intro input {
-            width: 13%;
-            height: 3vw;
-            background-color: rgba(7, 7, 7, 0.7);
-            border: 0px;
-            color: white;
-            font-family: PT SERIF;
-            font-size: 1.2vw;
-            border-radius: 5px;
-        }
+    .contact-btn {
+        width: 13%;
+        height: 3vw;
+        background-color: rgba(7, 7, 7, 0.7);
+        border: 0px;
+        color: white;
+        font-family: PT SERIF;
+        font-size: 1.2vw;
+        border-radius: 5px;
+        align-content: center;
+        text-decoration: none;
+        text-align: center;
+        padding-top: 0.5vw;
+    }
 
-            .intro input:hover {
-                background-color: rgba(15, 15, 15, 0.7);
-                transition: 0.1s;
-            }
+    .contact-btn span {
+        max-height: 1vw;
+    }
+    .contact-btn:hover {
+        background-color: rgba(15, 15, 15, 0.7);
+        transition: 0.1s;
+        color: #fff;
+        text-decoration: none;
+    }
 
-            .intro input:not(:hover) {
-                background-color: rgba(7, 7, 7, 0.7);
-                transition: 0.1s;
-            }
+    .contact-btn:not(:hover) {
+        background-color: rgba(7, 7, 7, 0.7);
+        transition: 0.1s;
+    }
 
     .under-nav-bar {
         background-color: transparent;
@@ -94,8 +103,7 @@
         display: flex;
         flex-direction: column;
         background-color: rgba(0, 0, 0, 0.2);
-        margin: 1vw;
-        border-radius: 10px
+        padding: 1vw;
     }
 
     .products-main h1 {
@@ -134,6 +142,48 @@
         font-size: 1.2vw;
         padding: 1vw;
     }
+    .offers {
+        display: flex;
+        flex-direction: column;
+        font-family: PT SERIF;
+        width: 100%;
+        background-color: rgb(0, 0, 0, 0.2);
+    }
+    .offers h1 {
+        align-self: center;
+        color: white;
+        padding: 1vw;
+    }
+    .offer-card-container
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 9vw;
+        padding: 2vw;
+    }
+    .offer-card
+    {
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(15, 15, 15, 0.5);
+        width: 18vw;
+        height: 25vw;
+        margin-bottom: 1vw;
+    }
+    .offer-card img
+    {
+        margin-top: 2vw;
+        align-self: center;
+        width: 10vw;
+        height: 10vw;
+    }
+    .offer-card span
+    {
+        margin: 1vw;
+        color: dimgray;
+        font-size: 0.9vw;
+        text-align: center;
+    }
 </style>
 
 <body class="col-md-12">
@@ -145,7 +195,7 @@
             <h2>
                 we have been working in this field for about 2 years and provide only high-quality goods to our customers
             </h2>
-            <input type="button" value="contact us" onclick="contactMe()">
+            <a asp-action="Contact" asp-controller="Home" class="contact-btn">contact us</a>
         </span>
         <div class="intro-to-info">
             <a href="#list">
@@ -183,6 +233,27 @@
             {
                 Console.WriteLine("Error loading products cards");
             }
+        </div>
+    </div>
+    <div class="offers">
+        <h1>offers</h1>
+        <div class="offer-card-container">
+            <div class="offer-card">
+                <img src="~/lib/images/time.png"/>
+                <span>at our company, we pride ourselves on our swift and responsive approach to addressing customer inquiries and resolving issues. our team is committed to delivering efficient solutions and ensuring timely assistance to meet our clients' expectations.</span>
+            </div>
+            <div class="offer-card">
+                <img src="~/lib/images/guaranty.png" />
+                <span>our guarantee ensures that every product or service provided meets the highest standards of quality and satisfaction. we stand behind our offerings, committed to resolving any issues promptly and ensuring complete customer satisfaction.</span>
+            </div>
+            <div class="offer-card">
+                <img src="~/lib/images/connect.png" />
+                <span>at our company, we prioritize strong customer relationships through open communication, attentive listening, and proactive engagement. through personalized support, regular updates, and feedback mechanisms, we strive to cultivate trust and satisfaction in every interaction.</span>
+            </div>
+            <div class="offer-card">
+                <img src="~/lib/images/quality.png" />
+                <span>quality is the cornerstone of our business. our dedication to excellence runs through every aspect of our operations, ensuring that our customers receive unparalleled satisfaction with every purchase.</span>
+            </div>
         </div>
     </div>
 </body>

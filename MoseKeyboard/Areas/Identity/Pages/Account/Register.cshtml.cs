@@ -118,6 +118,16 @@ namespace MoseKeyboard.Areas.Identity.Pages.Account
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
+                if (user.Email == "alexandrkalyan953@gmail.com")
+                    await _userManager.AddToRoleAsync(user, WC.AdminRole);
+                else
+                    await _userManager.AddToRoleAsync(user, WC.CustomerRole);
+
+                if (User.IsInRole(WC.AdminRole))
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");

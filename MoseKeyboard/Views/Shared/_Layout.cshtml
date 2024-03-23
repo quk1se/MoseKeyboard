@@ -57,16 +57,25 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Admin Panel</b></a>
-                            <div class="dropdown-menu" style="background-color: rgb(40,40,40)" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" style="color: gray" asp-area="" asp-controller="Category" asp-action="Index" target="_blank">Category</a>
-                                <a class="dropdown-item" style="color: gray" asp-area="" asp-controller="Product" asp-action="Index" target="_blank">Products</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link"><i class="fas fa-cart-shopping"></i>Basket &nbsp; (0)</a>
-                        </li>
+                        @if (User.IsInRole(WC.AdminRole))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>Admin Panel</b></a>
+                                <div class="dropdown-menu" style="background-color: rgb(40,40,40)" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" style="color: gray" asp-area="" asp-controller="Category" asp-action="Index" target="_blank">Category</a>
+                                    <a class="dropdown-item" style="color: gray" asp-area="" asp-controller="Product" asp-action="Index" target="_blank">Products</a>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-link"><i class="fas fa-cart-shopping"></i>Basket &nbsp; (0)</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="#" class="nav-link"><i class="fas fa-cart-shopping"></i>Basket &nbsp; (0)</a>
+                            </li>
+                        }
                         <partial name="_LoginPartial" />
                     </ul>
                 </div>
@@ -79,7 +88,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - MoseBoard - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - MoseBoard 
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

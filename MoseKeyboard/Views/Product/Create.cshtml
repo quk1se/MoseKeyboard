@@ -25,11 +25,11 @@
         border-radius: 10px;
     }
 
-        .create h1, hr {
-            align-self: center;
-            color: darkgray;
-            font-family: PT SERIF;
-        }
+    .create h1, hr {
+        align-self: center;
+        color: darkgray;
+        font-family: PT SERIF;
+    }
 
     .control-label {
         color: darkgray;
@@ -70,7 +70,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Description" class="control-label"></label>
-                        <input asp-for="Description" class="form-control" />
+                        <input asp-for="Description" class="form-control" />    
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -80,7 +80,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Image" class="control-label"></label>
-                        <input asp-for="Image" class="form-control" />
+                        <input asp-for="Image" type="file" name="files" id="uploadBox" multiple class="form-control, inputs" />
                         <span asp-validation-for="Image" class="text-danger"></span>
                     </div>
                     <div class="form-group">
