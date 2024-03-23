@@ -10,6 +10,7 @@ using MoseBoard.DAL.Repository.IRepository;
 using MoseKeyboard.Data;
 using MoseKeyboard.Models.Models;
 using Microsoft.AspNetCore.Authorization;
+using MoseKeyboard.Models.Models.ViewModel;
 
 namespace MoseKeyboard.Controllers
 {
@@ -29,10 +30,17 @@ namespace MoseKeyboard.Controllers
         }
 
         // GET: Product
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pg = 1)
         {
-            var applicationDbContext = _context.Product.Include(p => p.Category);
-            return View(await applicationDbContext.ToListAsync());
+            var applicationDBContext = await _context.Product.Include(p => p.Category).ToListAsync();
+            const int pageSize = 5;
+            if (pg < 1) pg = 1;
+            int recsCount = applicationDBContext.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = applicationDBContext.Skip(recSkip).Take(pageSize).ToList();
+            this.ViewBag.Pager = pager;
+            return View(data);
         }
 
         // GET: Product/Details/5

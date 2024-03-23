@@ -8,6 +8,7 @@ using MoseKeyboard.Data;
 using MoseKeyboard.Models.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using MoseKeyboard.Models.Models.ViewModel;
 
 namespace MoseKeyboard.Controllers
 {
@@ -22,9 +23,17 @@ namespace MoseKeyboard.Controllers
         }
 
         // GET: Category
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pg = 1)
         {
-            return View(await _context.Category.ToListAsync());
+            var categories = await _context.Category.ToListAsync();
+            const int pageSize = 5;
+            if (pg < 1) pg = 1;
+            int recsCount = categories.Count();
+            var pager = new Pager(recsCount, pg, pageSize);
+            int recSkip = (pg - 1) * pageSize;
+            var data = categories.Skip(recSkip).Take(pageSize).ToList();
+            this.ViewBag.Pager = pager;
+            return View(data);
         }
 
         // GET: Category/Details/5

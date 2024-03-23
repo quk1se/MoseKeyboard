@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<MoseKeyboard.Models.Models.Product>
-@* @using MoseKeyboard.Models.ViewModel *@
+@using MoseKeyboard.Models.Models.ViewModel
 @{
     ViewData["Title"] = "Index";
-    // Pager pager = new Pager();
-    // int pageNo = 0;
-    // if (ViewBag.Pager != null)
-    // {
-    //     pager = ViewBag.Pager;
-    //     pageNo = pager.CurrentPage;
-    // }
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.Pager != null)
+    {
+        pager = ViewBag.Pager;
+        pageNo = pager.CurrentPage;
+    }
 }
 
 <style>
@@ -107,7 +107,7 @@
                 }
             </tbody>
         </table>
-        @* <partial name="_PagerProduct" model="@pager" /> *@
+        <partial name="_PagerProduct" model="@pager" /> 
     </div>
 </body>
 
