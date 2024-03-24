@@ -1,0 +1,16 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "*****************************************************************************************"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "GoogleKeys": {
+    "ClientId": "***********************************************************************",
+    "ClientSecret": "*************************************"
+  },
+  "AllowedHosts": "*"
+}
