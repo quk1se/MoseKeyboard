@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 /MoseKeyboard/appsettings.json
 /MoseKeyboard/appsettings.json
+/MoseKeyboard/appsettings.Development.json
