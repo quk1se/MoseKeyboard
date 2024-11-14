@@ -93,6 +93,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+
+
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -101,4 +104,4 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
-#endregion  
+#endregion
